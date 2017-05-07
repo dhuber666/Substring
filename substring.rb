@@ -17,6 +17,7 @@ def substrings (searchword, listOfWords)
   # create a array first with searchword and put any word in the array
 
   searchwords = searchword.split(/\W+/)
+  listOfWords = listOfWords
 
 
   dict = Hash.new(0)
@@ -24,7 +25,7 @@ def substrings (searchword, listOfWords)
   listOfWords.each do |word| # This function puts the word's inside the hash and increase the counter
     searchwords.each do |search|
 
-      if search.include? word
+      if search.downcase.include? word.downcase
         dict[word] += 1
       end
     end
